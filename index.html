@@ -1,0 +1,67 @@
+<header>
+    <div class="logo">
+        <div class="logo-icon">🌾</div>
+        <div>
+            <h1>రైతు మిత్రుడు</h1>
+            <p>Farmer Friendly Smart Assistant</p>
+        </div>
+    </div>
+
+    <nav>
+        <button onclick="scrollToSection('weather')">🌦️ వాతావరణం</button>
+        <button onclick="scrollToSection('crops')">🌱 పంటలు</button>
+        <button onclick="scrollToSection('fertilizer')">🧪 ఎరువులు</button>
+        <button onclick="scrollToSection('market')">💰 మార్కెట్</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h2>🌾 రైతుకు అండగా... రైతు మిత్రుడు</h2>
+        <p>
+            వాతావరణం, విత్తనాలు, ఎరువులు, నేల ఆరోగ్యం
+            మరియు పంట ధరల గురించి సులభంగా తెలుసుకోండి.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="main-btn" onclick="scrollToSection('services')">
+                🌱 సేవలు చూడండి
+            </button>
+
+            <button class="voice-btn"
+                onclick="speakText('రైతు మిత్రుడికి స్వాగతం. మీ పంటకు సంబంధించిన సమాచారాన్ని సులభంగా తెలుసుకోండి.')">
+                🔊 వినండి
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-title">
+        <h2>🌾 రైతుకు కావలసిన సమాచారం</h2>
+        <p>చదవడం కంటే చూడటం మరియు వినడం సులభం</p>
+    </div>
+
+    <div class="cards">
+        <div class="card" onclick="scrollToSection('weather')">
+            <div class="card-icon">🌦️</div>
+            <h3>వాతావరణం</h3>
+            <p>వర్షం, ఉష్ణోగ్రత మరియు గాలి గురించి తెలుసుకోండి.</p>
+            <button>చూడండి</button>
+        </div>
+
+        <div class="card" onclick="scrollToSection('crops')">
+            <div class="card-icon">🌱</div>
+            <h3>విత్తనాలు</h3>
+            <p>మీ ప్రాంతానికి సరైన పంట మరియు విత్తనాలను ఎంచుకోండి.</p>
+            <button>చూడండి</button>
+        </div>
+
+        <div class="card" onclick="scrollToSection('fertilizer')">
+            <div class="card-icon">🧪</div>
+            <h3>ఎరువులు</h3>
+            <p>పంటకు అవసరమైన పోషకాలను తెలుసుకోండి.</p>
+            <button>చూడండి</button>
+        </div>
+
+        <div class="

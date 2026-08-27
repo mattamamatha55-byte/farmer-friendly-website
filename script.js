@@ -394,7 +394,29 @@ footer p {
     .weather-main {
         justify-content: center;
     }
+async function askBackend(question) {
+    try {
+        const response = await fetch(
+            "https://farmer-friendly-website.onrender.com/ask",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    question: question
+                })
+            }
+        );
 
+        const data = await response.json();
+        return data.answer;
+
+    } catch (error) {
+        console.error("Backend error:", error);
+        return "Server connection సమస్య వచ్చింది.";
+    }
+}
     .price-table {
         font-size: 13px;
     }

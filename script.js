@@ -23,10 +23,12 @@ async function askBackend(question) {
         }
 
         const data = await response.json();
+
         return data.answer || "సమాధానం అందుబాటులో లేదు.";
 
     } catch (error) {
         console.error("Backend error:", error);
+
         return "Server connection సమస్య వచ్చింది. కొద్దిసేపటి తర్వాత ప్రయత్నించండి.";
     }
 }
@@ -38,30 +40,38 @@ async function askBackend(question) {
 
 async function askFarmerAssistant() {
 
-    const questionInput = document.getElementById("farmerQuestion");
+    const questionInput =
+        document.getElementById("farmerQuestion");
 
     if (!questionInput) {
         alert("Question input కనిపించలేదు.");
         return;
     }
 
-    const question = questionInput.value.trim();
+    const question =
+        questionInput.value.trim();
 
     if (question === "") {
         alert("దయచేసి మీ ప్రశ్నను టైప్ చేయండి.");
         return;
     }
 
-    const answerBox = document.getElementById("farmerAnswer");
+    const answerBox =
+        document.getElementById("farmerAnswer");
 
     if (answerBox) {
+
         answerBox.style.display = "block";
-        answerBox.innerHTML = "🌱 సమాధానం కోసం చూస్తున్నాను...";
+
+        answerBox.innerHTML =
+            "🌱 సమాధానం కోసం చూస్తున్నాను...";
     }
 
-    const answer = await askBackend(question);
+    const answer =
+        await askBackend(question);
 
     if (answerBox) {
+
         answerBox.innerHTML = `
             <strong>🌾 Farmer Mitrudu:</strong>
             <p>${answer}</p>
@@ -76,17 +86,23 @@ async function askFarmerAssistant() {
 
 function showCropInfo() {
 
-    const cropSelect = document.getElementById("cropSelect");
-    const result = document.getElementById("cropResult");
+    const cropSelect =
+        document.getElementById("cropSelect");
+
+    const result =
+        document.getElementById("cropResult");
 
     if (!cropSelect || !result) {
         return;
     }
 
-    const crop = cropSelect.value;
+    const crop =
+        cropSelect.value;
 
     if (crop === "") {
+
         result.classList.remove("show");
+
         return;
     }
 
@@ -122,16 +138,33 @@ function showCropInfo() {
 
     };
 
-    const data = cropData[crop];
+    const data =
+        cropData[crop];
 
     if (!data) {
-        result.innerHTML = "పంట వివరాలు అందుబాటులో లేవు.";
+
+        result.innerHTML =
+            "పంట వివరాలు అందుబాటులో లేవు.";
+
     } else {
+
         result.innerHTML = `
             <h3>${data.name}</h3>
-            <p><strong>💧 నీరు:</strong> ${data.water}</p>
-            <p><strong>🌱 ఎరువులు:</strong> ${data.fertilizer}</p>
-            <p><strong>🐛 పురుగులు:</strong> ${data.pest}</p>
+
+            <p>
+                <strong>💧 నీరు:</strong>
+                ${data.water}
+            </p>
+
+            <p>
+                <strong>🌱 ఎరువులు:</strong>
+                ${data.fertilizer}
+            </p>
+
+            <p>
+                <strong>🐛 పురుగులు:</strong>
+                ${data.pest}
+            </p>
         `;
     }
 
@@ -147,18 +180,22 @@ function speakText(text) {
 
     if ("speechSynthesis" in window) {
 
-        const speech = new SpeechSynthesisUtterance(text);
+        const speech =
+            new SpeechSynthesisUtterance(text);
 
         speech.lang = "te-IN";
+
         speech.rate = 0.9;
 
         window.speechSynthesis.cancel();
+
         window.speechSynthesis.speak(speech);
 
     } else {
 
-        alert("మీ browser voice feature ను support చేయడం లేదు.");
-
+        alert(
+            "మీ browser voice feature ను support చేయడం లేదు."
+        );
     }
 }
 
@@ -169,9 +206,11 @@ function speakText(text) {
 
 function scrollToSection(sectionId) {
 
-    const section = document.getElementById(sectionId);
+    const section =
+        document.getElementById(sectionId);
 
     if (section) {
+
         section.scrollIntoView({
             behavior: "smooth"
         });
@@ -183,14 +222,23 @@ function scrollToSection(sectionId) {
 // PAGE LOAD
 // ===============================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    console.log("🌾 Farmer Mitrudu website loaded.");
+        console.log(
+            "🌾 Farmer Mitrudu website loaded."
+        );
 
-    const cropSelect = document.getElementById("cropSelect");
+        const cropSelect =
+            document.getElementById("cropSelect");
 
-    if (cropSelect) {
-        cropSelect.addEventListener("change", showCropInfo);
+        if (cropSelect) {
+
+            cropSelect.addEventListener(
+                "change",
+                showCropInfo
+            );
+        }
     }
-
-});
+);
